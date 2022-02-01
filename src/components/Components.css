@@ -1,0 +1,43 @@
+/* General Types */
+.button {
+    cursor: pointer;
+    border-style: none;
+    background-color: #2044E0;
+    color: white;
+}
+
+.textfields {
+    border-style: solid;
+}
+
+/* Specific Components */
+.Login {
+    padding: 2em;
+    height: min-content;
+    width: min-content;
+    background-color: white;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 5em;
+    border-radius: 1rem; 
+}
+
+.Login form input {
+    padding: 0.5em;
+    font-size: 2.4rem;
+    margin: 0.2em;
+    border-radius: 1rem; 
+    border-color: rgb(165, 165, 165);
+}
+
+.SpiralLogo {
+    margin-top: -10em;
+    margin-bottom: -10em;
+    height: 40rem;
+}
+
+.LoginButton {
+    width: 80%;
+}

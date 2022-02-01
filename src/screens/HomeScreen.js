@@ -1,9 +1,10 @@
 import React from "react";
+import Login from "../components/Login";
 
 const HomeScreen = () => {
     return (
         <>
-            <h1>Spiral Banking App</h1>
+            <Login />
         </>
     );
 }
