@@ -1,0 +1,4 @@
+.HomeScreen {
+    display: flex;
+    flex-direction: row;
+}

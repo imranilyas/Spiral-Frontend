@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
     <div className="App">
       <Router basename='/'>
         <Routes>
-          <Route index element = {<HomeScreen />} />
+          <Route index element = {<LoginScreen />} />
+          <Route path = '/user' element = {<HomeScreen />} />
         </Routes>
       </Router>
     </div>

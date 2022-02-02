@@ -1,11 +1,15 @@
 import React from "react";
-import Login from "../components/Login";
+import Navbar from "../components/Navbar";
+import NavDisplay from "../components/NavDisplay";
+
+import './Screens.css';
 
 const HomeScreen = () => {
     return (
-        <>
-            <Login />
-        </>
+        <div className="HomeScreen">
+            <Navbar />
+            <NavDisplay />
+        </div>
     );
 }
 
