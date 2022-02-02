@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Navbar = (props) => {
     //! Conditionally Render Create Customer Component...except Sign Out
     //! Feed props in here
-    const [role, setRole] = useState("Account Holder");
+    const [role] = useState(props.role);
     const navigate = useNavigate(); 
 
     const logoutHandler = () => {
@@ -20,7 +20,7 @@ const Navbar = (props) => {
                 <h3 className="Username">Name</h3>
             </div>
 
-            {role === "Account Holder" ?
+            {role === "Bank Manager" ?
                 <div className = "Navlinks">
                     <p>Create New Account</p>
                 </div>

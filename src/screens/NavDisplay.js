@@ -1,6 +1,6 @@
 import React from "react";
 
-const NavDisplay = () => {
+const NavDisplay = (props) => {
     return (
         <div className = "NavDisplay">
             Something dumber    
