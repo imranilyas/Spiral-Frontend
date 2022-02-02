@@ -38,6 +38,13 @@
     height: 40rem;
 }
 
+.SpiralLogoHome {
+    margin: auto;
+    margin-top: -5em;
+    margin-bottom: -5em;
+    height: 20rem;
+}
+
 .LoginButton {
     width: 80%;
 }
@@ -45,8 +52,15 @@
 /* Navbar and Navdisplay */
 .Navbar {
     width: 20%;
-    background: aqua;
+    background-color: rgb(255, 255, 255, 0.5);
     height: 100vh;
+}
+
+.Navbar div {
+    text-align: left;
+    background-color: blue;
+    width: 90%;
+    margin: auto;
 }
 
 .NavDisplay {
