@@ -41,3 +41,16 @@
 .LoginButton {
     width: 80%;
 }
+
+/* Navbar and Navdisplay */
+.Navbar {
+    width: 20%;
+    background: aqua;
+    height: 100vh;
+}
+
+.NavDisplay {
+    width: 80%;
+    background: goldenrod;
+    height: 100vh;
+}
