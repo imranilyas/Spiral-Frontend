@@ -2,3 +2,54 @@
     display: flex;
     flex-direction: row;
 }
+
+/* Navbar */
+.Navbar {
+    width: 20%;
+    background-color: rgb(255, 255, 255, 0.5);
+    height: 100vh;
+}
+
+.Navbar div {
+    text-align: left;
+    width: 80%;
+}
+
+.Navheader {
+    margin: auto;
+}
+
+.Navlinks {
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 0.5rem;
+    transition: 0.5s;
+    font-size: 1.2rem;
+}
+
+.Navlinks:hover {
+    background-color: rgba(0, 108, 197, 0.8);
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.Navlinks p {
+    padding: 1em;
+    margin-left: 1em;
+}
+
+.Username {
+    font-style: italic;    
+}
+
+/* NavDisplay */
+.NavDisplay {
+    margin: auto;
+    width: 77%;
+    background-color: rgba(0, 108, 197, 0.8);
+    height: 95vh;
+    border-radius: 0.5rem;
+    color: black
+}
