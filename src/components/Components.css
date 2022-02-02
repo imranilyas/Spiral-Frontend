@@ -6,6 +6,12 @@
     color: white;
 }
 
+/* To be Deleted */
+.icons {
+    margin-right: 1em;
+    font-size: 1.5rem;
+}
+
 .textfields {
     border-style: solid;
 }
@@ -49,7 +55,7 @@
     width: 80%;
 }
 
-/* Navbar and Navdisplay */
+/* Navbar */
 .Navbar {
     width: 20%;
     background-color: rgb(255, 255, 255, 0.5);
@@ -58,13 +64,41 @@
 
 .Navbar div {
     text-align: left;
-    background-color: blue;
-    width: 90%;
+    width: 80%;
+}
+
+.Navheader {
     margin: auto;
 }
 
+.Navlinks {
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 0.5rem;
+    transition: 0.5s;
+    font-size: 1.2rem;
+}
+
+.Navlinks:hover {
+    background-color: blue;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.Navlinks p {
+    padding: 1em;
+    margin-left: 1em;
+}
+
+.Username {
+    font-style: italic;    
+}
+
+/* NavDisplay */
 .NavDisplay {
     width: 80%;
-    background: goldenrod;
+    /* background: goldenrod; */
     height: 100vh;
 }
