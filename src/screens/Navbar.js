@@ -1,12 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
-    //! Conditionally Render Create Customer Component...except Sign Out
-    //! Feed props in here
-    const [role] = useState(props.role);
+
     const navigate = useNavigate(); 
 
+    // Uplifts current component name
+    const currentComponent = (element) => {
+        props.activeHandler(element);
+    } 
+
+    //! May have to reset some states here
     const logoutHandler = () => {
         navigate('/');
     }
@@ -20,20 +24,20 @@ const Navbar = (props) => {
                 <h3 className="Username">Name</h3>
             </div>
 
-            {role === "Bank Manager" ?
-                <div className = "Navlinks">
-                    <p>Create New Account</p>
+            {props.role === "Bank Manager" ?
+                <div className={"Navlinks " + (props.active === "Create New Account" && "ActiveComponent")}>
+                    <p onClick={e => currentComponent(e.target.innerHTML)}>Create New Account</p>
                 </div>
                     :
                 <>
-                    <div className="Navlinks">
-                        <p>Accounts</p> {/* //! Make transactions be found after clicking on each account !\\ */}
+                    <div className={"Navlinks " + (props.active === "Accounts" && "ActiveComponent")}>
+                        <p onClick={e => currentComponent(e.target.innerHTML)}>Accounts</p> {/* //! Make transactions be found after clicking on each account !\\ */}
                     </div>
-                    <div className="Navlinks">
-                        <p>Withdrawl / Deposit</p>
+                    <div className={"Navlinks " + (props.active === "Withdrawl / Deposit" && "ActiveComponent")}>
+                        <p onClick={e => currentComponent(e.target.innerHTML)}>Withdrawl / Deposit</p>
                     </div>
-                    <div className="Navlinks">
-                        <p>Transfer</p>
+                    <div  className={"Navlinks " + (props.active === "Transfer" && "ActiveComponent")}>
+                        <p onClick={e => currentComponent(e.target.innerHTML)}>Transfer</p>
                     </div>
                 </>
             }
