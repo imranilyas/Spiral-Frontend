@@ -4,7 +4,9 @@ import './Components.css';
 
 const NewAccount = () => {
     return (
-        <>New Account</>
+        <div className="NewAccount">
+            
+        </div>
     );
 }
 
