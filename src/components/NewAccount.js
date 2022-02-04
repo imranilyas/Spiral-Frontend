@@ -6,7 +6,8 @@ import './Components.css';
 const NewAccount = () => {
 
     const [pan, setPan] = useState("");
-    const [panExists, setPanExists] = useState("❌");
+    const [name, setName] = useState("");
+    const [panExists, setPanExists] = useState("❌ No account exists");
 
     //! Call Axios to check if PAN exists
     const checkPan = () => {
@@ -30,7 +31,8 @@ const NewAccount = () => {
                 <label>{panExists}</label>
             </div>
             <div>
-                
+                <label>Applicant Name:</label>
+                <input type="text" value = {name} onChange={e => setName(e.target.value)}/>
             </div>
         </div>
     );
