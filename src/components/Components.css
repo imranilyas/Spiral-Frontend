@@ -58,4 +58,29 @@
     background-color: rgb(255, 255, 255, 0.6);
     border-radius: 0.5rem;
     box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.NewAccount h1 {
+    font-style: italic;
+    font-size: 2.5rem;
+}
+
+.NewAccount div {
+    padding: 0.5em 3em;
+}
+
+.NewAccount label, .NewAccount input {
+    font-size: 1.4rem;
+}
+
+.NewAccount input {
+    margin-left: 0.5em;
+    border-radius: 0.2em;
+    /* padding-left: 1.5em; */
+    text-align: center;
+}
+
+.NewAccount input + label {
+    margin-left: 0.5em;
 }
