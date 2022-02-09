@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './Components.css';
 
 const Login = () => {
@@ -6,10 +7,13 @@ const Login = () => {
     const [loginInput, setLoginInput] = useState("");
     const [passwordInput, setPasswordInput] = useState("");
 
+    const navigate = useNavigate();
+
     //! Call Axios Request
     const loginHandler = (event) => {
         event.preventDefault();
         console.log("Login");
+        navigate('/user');
     }
 
     return (
