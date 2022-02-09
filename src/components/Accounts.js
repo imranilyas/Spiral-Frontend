@@ -4,13 +4,14 @@ import './Components.css';
 
 //! Will be deleted when axios implemented
 const data = [
-    {"account_number": 23424, "current_balance": 34536546},
-    {"account_number": 897654, "current_balance": 420},
-    {"account_number": 2345, "current_balance": 345420},
-    {"account_number": 98765434567, "current_balance": 5746765}
+    {"account_number": 23424, "current_balance": 365445365.46},
+    {"account_number": 897654, "current_balance": 4.20},
+    {"account_number": 2345, "current_balance": 3454.20},
+    {"account_number": 98765434567, "current_balance": 57467.65},
+    {"account_number": 987654, "current_balance": 574467.65}
 ];
 
-const Accounts = () => {
+const Accounts = (props) => {
 
     const [myAccounts, setMyAccounts] = useState([]);
 
@@ -18,6 +19,7 @@ const Accounts = () => {
     const routeTransaction = (input) => {
         // Either call a Navigate function or do some bubbling
         console.log("On to transaction with account number: " + input);
+        props.viewTransactions(false);
     }
 
     //! Call axios function for getting all accounts
@@ -35,8 +37,8 @@ const Accounts = () => {
             {myAccounts.map(account => {
                 return (
                     <div className = "Account" key = {account.account_number} onClick = {() => routeTransaction(account.account_number)}>
-                        <h2>Account Number: {account.account_number}</h2>
-                        <h2>Current Balance: {account.current_balance}</h2>
+                        <p><b>Account Number:</b> <i>{account.account_number}</i></p>
+                        <p><b>Current Balance:</b> <i>${account.current_balance.toFixed(2)}</i></p>
                     </div>
                 );
             })}
