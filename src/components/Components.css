@@ -141,4 +141,24 @@
     border-radius: 0.5em;
     background-color: rgba(0, 108, 197, 0.8);
     font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.TransColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.Right {
+    text-align: right;
+}
+
+.Green {
+    color: rgb(0, 110, 0);
+}
+
+.Red {
+    color: rgb(143, 0, 0);
 }

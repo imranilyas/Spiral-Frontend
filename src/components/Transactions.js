@@ -13,6 +13,10 @@ const Transactions = (props) => {
 
     const [transactionList, setTransactionList] = useState([]);
 
+    const returnToAccountsHandler = () => {
+        props.viewAllAccounts(true);
+    }
+
     useEffect(() => {
         console.log("Inside useEffect for Transactions");
         setTransactionList(data);
@@ -22,14 +26,31 @@ const Transactions = (props) => {
         <div className="NewAccount">
             <div>
                 <h1>Transactions</h1>
+                <p onClick={returnToAccountsHandler}>{"< Back"}</p>
             </div>
             {transactionList.map(transaction => {
+                // Formatting the date and time
                 let date = new Date(transaction.time);
+                let hours = date.getHours();
+                let minutes = date.getMinutes();
+                let time = "AM";
+                if(hours > 12) {
+                    hours -= 12;
+                    time = "PM";
+                }
+                if(minutes < 10) {
+                    minutes = "0" + minutes;
+                }
                 return (
                     <div className="Transaction" key = {transaction.reference_number}>
-                        {date.toLocaleString('default', {month: 'long'}) + " " + date.getDate() + ", " + date.getFullYear() + " "}
-                        {(transaction.type === "Withdraw" ? "-": "+")  + transaction.amount.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}
-                        {transaction.current_balance.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}
+                        <div className="TransColumn">
+                            <label>{date.toLocaleString('default', {month: 'long'}) + " " + date.getDate() + ", " + date.getFullYear() + " "}</label>
+                            <label>{hours + ":" + minutes + time + " "}</label>
+                        </div>
+                        <div className="TransColumn Right">
+                            <label className={transaction.type === "Withdraw" ? "Red" : "Green"}>{(transaction.type === "Withdraw" ? "-" : "+")  + transaction.amount.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}</label>
+                            <label>${transaction.current_balance.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}</label>
+                        </div>
                     </div>
                 );
             })}
