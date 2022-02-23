@@ -5,9 +5,16 @@ import Transactions from "../components/Transactions";
 const AccountScreen = (props) => {
 
     const [viewAccounts, setViewAccounts] = useState();
+    const [accountNumber, setAccountNumber] = useState("");
 
+    // Conditionally rendering Accounts or Transactions Component
     const viewTransactionsHandler = (input) => {
         setViewAccounts(input);
+    }
+
+    // Pass account number through props
+    const captureAccountNumber = (input) => {
+        setAccountNumber(input);
     }
 
     useEffect(() => {
@@ -18,9 +25,9 @@ const AccountScreen = (props) => {
     return(
         <>
             {viewAccounts ?
-                <Accounts viewTransactions = {viewTransactionsHandler}/>
+                <Accounts viewTransactions = {viewTransactionsHandler} accountHandler = {captureAccountNumber}/>
                 :
-                <Transactions viewAllAccounts = {viewTransactionsHandler}/>
+                <Transactions viewAllAccounts = {viewTransactionsHandler} accountNumber = {accountNumber}/>
             }
         </>
     );
