@@ -18,15 +18,19 @@ const Transactions = (props) => {
     }
 
     useEffect(() => {
+        console.log(typeof props.accountNumber);
         console.log("Inside useEffect for Transactions");
         setTransactionList(data);
-    }, []);
+    }, [props.accountNumber]);
 
     return (
         <div className="NewAccount">
             <div>
                 <h1>Transactions</h1>
-                <p onClick={returnToAccountsHandler}>{"< Back"}</p>
+                <span className="NavHeader">
+                    <aside className="NavLink" onClick={returnToAccountsHandler}>{"< Back"}</aside>
+                    <>{"/ Account #" + props.accountNumber}</>
+                </span>
             </div>
             {transactionList.map(transaction => {
                 // Formatting the date and time
@@ -34,8 +38,10 @@ const Transactions = (props) => {
                 let hours = date.getHours();
                 let minutes = date.getMinutes();
                 let time = "AM";
-                if(hours > 12) {
-                    hours -= 12;
+                if(hours >= 12) {
+                    if(hours > 12) {
+                        hours -= 12;
+                    }
                     time = "PM";
                 }
                 if(minutes < 10) {

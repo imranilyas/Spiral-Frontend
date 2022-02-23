@@ -162,3 +162,25 @@
 .Red {
     color: rgb(143, 0, 0);
 }
+
+/* NavLink and Header on Transaction Screen */
+
+.NavHeader {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.4rem;
+    margin-bottom: 0.3em;
+}
+
+.NavLink {
+    cursor: pointer;
+    margin-right: 0.3em;
+}
+
+.NavLink:hover {
+    color: rgba(0, 108, 197, 0.8);
+}
+
+.NavLink:active {
+    color: rgba(0, 65, 119, 0.8);
+}
