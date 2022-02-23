@@ -19,6 +19,7 @@ const Accounts = (props) => {
     const routeTransaction = (input) => {
         // Either call a Navigate function or do some bubbling
         console.log("On to transaction with account number: " + input);
+        props.accountHandler(input);
         props.viewTransactions(false);
     }
 
