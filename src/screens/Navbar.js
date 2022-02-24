@@ -24,14 +24,10 @@ const Navbar = (props) => {
                 <h3 className="Username">Name</h3>
             </div>
 
-            {props.role === "Bank Manager" ?
-                <div className={"Navlinks " + (props.active === "Create New Account" && "ActiveComponent")}>
-                    <p onClick={e => currentComponent(e.target.innerHTML)}>Create New Account</p>
-                </div>
-                    :
+            {props.role === "Account Holder" ?
                 <>
                     <div className={"Navlinks " + (props.active === "Accounts" && "ActiveComponent")}>
-                        <p onClick={e => currentComponent(e.target.innerHTML)}>Accounts</p> {/* //! Make transactions be found after clicking on each account !\\ */}
+                        <p onClick={e => currentComponent(e.target.innerHTML)}>Accounts</p>
                     </div>
                     <div className={"Navlinks " + (props.active === "Withdrawl / Deposit" && "ActiveComponent")}>
                         <p onClick={e => currentComponent(e.target.innerHTML)}>Withdrawl / Deposit</p>
@@ -40,6 +36,10 @@ const Navbar = (props) => {
                         <p onClick={e => currentComponent(e.target.innerHTML)}>Transfer</p>
                     </div>
                 </>
+            :
+                <div className={"Navlinks " + (props.active === "Create New Account" && "ActiveComponent")}>
+                    <p onClick={e => currentComponent(e.target.innerHTML)}>Create New Account</p>
+                </div>
             }
             <div className = "Navlinks">
                 <p onClick={logoutHandler}>Sign Out</p>

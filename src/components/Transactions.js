@@ -28,8 +28,8 @@ const Transactions = (props) => {
             <div>
                 <h1>Transactions</h1>
                 <span className="NavHeader">
-                    <aside className="NavLink" onClick={returnToAccountsHandler}>{"< Back"}</aside>
-                    <>{"/ Account #" + props.accountNumber}</>
+                    <aside className="NavigationLink" onClick={returnToAccountsHandler}>{"< Back"}</aside>
+                    <>{"/ Account Number: " + props.accountNumber}</>
                 </span>
             </div>
             {transactionList.map(transaction => {
