@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {CSVLink} from "react-csv";
 
 //! Will be removed once axios is connected
 const data = [
@@ -26,10 +27,10 @@ const Transactions = (props) => {
     return (
         <div className="NewAccount">
             <div>
-                <h1>Transactions</h1>
+                <h1>Transactions - {"Account Number: " + props.accountNumber}</h1>
                 <span className="NavHeader">
                     <aside className="NavigationLink" onClick={returnToAccountsHandler}>{"< Back"}</aside>
-                    <>{"/ Account Number: " + props.accountNumber}</>
+                    <CSVLink className="NavigationLink" data = {data} target = "_blank">Download All Transactions</CSVLink>
                 </span>
             </div>
             {transactionList.map(transaction => {
