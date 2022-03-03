@@ -15,6 +15,11 @@
     background-color: rgba(0, 65, 119, 0.8);
 }
 
+.title {
+    font-style: italic;
+    font-size: 2.5rem;
+}
+
 .LoginTextfields {
     border-style: solid;
     background-color: rgb(0, 0, 0, 0.8);
@@ -176,7 +181,6 @@
 }
 
 /* NavLink and Header on Transaction Screen */
-
 .NavHeader {
     display: flex;
     flex-direction: row;
@@ -203,4 +207,51 @@
 .NavigationLink:active {
     background-color: rgba(0, 65, 119, 0.8);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.69);
+}
+
+/* Withdraw Deposit Transfer */
+.WithdrawDepositContainer {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 3%;
+    width: 40%;
+}
+
+.WithdrawDeposit {
+    margin-bottom: 0.4em;
+    padding: 0.4em 3em;
+    padding-bottom: 2em;
+    background-color: rgb(255, 255, 255, 0.6);
+    border-radius: 0.2rem;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.Transfer {
+    padding: 0.4em 3em;
+    margin: auto;
+    margin-top: 3%;
+    background-color: rgb(255, 255, 255, 0.6);
+    border-radius: 0.2rem;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    text-align: left;
+    width: 35%;
+}
+
+.WithdrawDeposit input, select, option {
+    font-size: 1.5rem;
+    width: 100%;
+    border-radius: 0.2rem;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.WithdrawDeposit select {
+    border-width: 0.15rem;
+    border-color: inherit;
+}
+
+.WithdrawDeposit input + input {
+    margin-top: 1em;
 }
