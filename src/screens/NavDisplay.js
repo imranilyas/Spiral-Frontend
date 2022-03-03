@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import NewAccount from "../components/NewAccount";
 import Transfer from "../components/Transfer";
-import WithdrawDeposit from "../components/WithdrawDeposit";
 import AccountScreen from "./AccountScreen";
+import UserTransaction from "./UserTransaction";
 
 const NavDisplay = (props) => {
 
@@ -17,7 +17,7 @@ const NavDisplay = (props) => {
         <div className = "NavDisplay">
             {props.active === "Create New Account" && <NewAccount />}
             {props.active === "Accounts" && <AccountScreen reset = {reset}/>}
-            {props.active === "Withdrawl / Deposit" && <WithdrawDeposit />}
+            {props.active === "Withdrawl / Deposit" && <UserTransaction />}
             {props.active === "Transfer" && <Transfer />}
         </div>
     );
