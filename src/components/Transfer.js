@@ -4,7 +4,9 @@ import './Components.css';
 
 const Transfer = () => {
     return (
-        <>Transfer</>
+        <div className="Transfer">
+            <h1 className = "title">Transfer</h1>
+        </div>
     );
 }
 
