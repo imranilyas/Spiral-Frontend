@@ -11,8 +11,6 @@ const data = [
 ];
 
 // Requirements for Withdraw and Deposit
-//! Will need Account number, amount you want to take out or put in, and submit button
-//! Upon selecting an account, the current balance appears below it
 //! Will need error checking especially for withdraw such that you cannot withdraw more than balance
 //! All withdraw and deposits are cash, transfer is transfer
 
@@ -23,7 +21,6 @@ const data = [
 //! User can only deposit when making transfers
 
 // Layout
-//! Deposit and Withdraw will be stacked and Transfer will be to the right of it --CHECK
 //! Arrow pointing downwards indicating the direction of money
 
 const WithdrawDeposit = () => {
@@ -36,6 +33,7 @@ const WithdrawDeposit = () => {
     // Deposit Error Checking
     const [idError, setIdError] = useState(true);
     const [depositError, setDepositError] = useState(true);
+    const [successfulDeposit, setSuccessfulDeposit] = useState(true);
 
     // Find the balance associated with that account number
     const accountHandler = (id) => {
@@ -59,7 +57,6 @@ const WithdrawDeposit = () => {
         // Error Checking
         if(amount <= 0 || amount >= 5000) {
             setDepositError(true);
-            console.log("hello")
         } else {setDepositError(false);}
     }
 
@@ -78,20 +75,33 @@ const WithdrawDeposit = () => {
             // Reset Error Checking
             setIdError(true);
             setDepositError(true);
+            setSuccessfulDeposit(true);
+        } else {
+            // Will display all the errors
+            setSuccessfulDeposit(false);
         }
+
     }
 
     // Withdraw States
+    const [accountIdWithdraw, setAccountIdWithdraw] = useState("");
+    const [withdrawBalance, setWithdrawBalance] = useState("");
+    const [withdrawAmount, setWithdrawAmount] = useState("");
+    
+    // Withdraw Error Checking
+    const [withdrawIdError, setWithdrawIdError] = useState(true);
+    const [withdrawError, setWithdrawError] = useState(true);
 
 
     return (
         <div className="WithdrawDepositContainer">
+            {/* Deposit Section */}
             <div className = "WithdrawDeposit">
                 <h1 className="title">Deposit</h1>
                 
-                <p>Current Balance: {accountIdDeposit && "$" + depositBalance.toFixed(2)}</p>
+                <h3>Current Balance: {accountIdDeposit && "$" + depositBalance.toFixed(2)}</h3>
 
-                <p>Select Account</p>
+                <h4>Select Account<i className="Red">{!successfulDeposit && idError && " Please select an account"}</i></h4>
                 <select value = {accountIdDeposit} onChange={(e) => accountHandler(e.target.value)}>
                     <option value = ""></option>
                     {data.map((account) => {
@@ -101,15 +111,34 @@ const WithdrawDeposit = () => {
                     })}
                 </select>
 
-                <p>Deposit Balance</p>
+                <h4>Deposit Balance<i className="Red">{!successfulDeposit && depositError && " Must be between 0 and $5000.00"}</i></h4>
                 <input className="DepositBalance" type="number" value = {depositAmount} onChange = {e => depositChangeHandler(e.target.value)} />
 
                 <input type="submit" value = "Deposit" onClick = {depositHandler} />
             </div>
-
+            
+            {/* Withdraw Section */}
             <div className = "WithdrawDeposit">
                 <h1 className="title">Withdraw</h1>
+                
+                <h3>Current Balance: {accountIdDeposit && "$" + depositBalance.toFixed(2)}</h3>
+
+                <h4>Select Account</h4>
+                <select value = {accountIdDeposit} onChange={(e) => accountHandler(e.target.value)}>
+                    <option value = ""></option>
+                    {data.map((account) => {
+                        return(
+                            <option value={account.account_number} key = {account.account_number}>{account.account_number}</option>
+                        );
+                    })}
+                </select>
+
+                <h4>Withdraw Balance</h4>
+                <input className="DepositBalance" type="number" value = {depositAmount} onChange = {e => depositChangeHandler(e.target.value)} />
+
+                <input type="submit" value = "Withdraw" onClick = {depositHandler} />
             </div>
+
         </div>
 
     );
