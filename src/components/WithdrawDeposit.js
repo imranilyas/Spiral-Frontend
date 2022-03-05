@@ -28,17 +28,61 @@ const data = [
 
 const WithdrawDeposit = () => {
 
+    // Deposit States
     const [accountIdDeposit, setAccountIdDeposit] = useState("");
     const [depositBalance, setDepositBalance] = useState("");
+    const [depositAmount, setDepositAmount] = useState("");
+    
+    // Deposit Error Checking
+    const [idError, setIdError] = useState(true);
+    const [depositError, setDepositError] = useState(true);
 
+    // Find the balance associated with that account number
     const accountHandler = (id) => {
-        // Find the balance associated with that account number
         if(id !== "") {
             const current = data.filter(acc => acc.account_number.toString() === id)[0].current_balance;
             setDepositBalance(current);
         } else {setDepositBalance("");}
         setAccountIdDeposit(id);
+
+        // Error Checking
+        if(id === "") {
+            setIdError(true);
+        } else {setIdError(false);}
+
     }
+
+    // Deposit Amount
+    const depositChangeHandler = (amount) => {
+        setDepositAmount(amount);
+
+        // Error Checking
+        if(amount <= 0 || amount >= 5000) {
+            setDepositError(true);
+            console.log("hello")
+        } else {setDepositError(false);}
+    }
+
+    // Deposit Button
+    const depositHandler = () => {
+        console.log(idError);
+        console.log(depositError);
+        if(idError === false && depositError === false) {
+            //! Call Axios function for depositing to an account
+            console.log("Successful Deposit Handler");
+
+            // Reset States
+            setAccountIdDeposit("");
+            setDepositAmount("");
+
+            // Reset Error Checking
+            setIdError(true);
+            setDepositError(true);
+        }
+    }
+
+    // Withdraw States
+
 
     return (
         <div className="WithdrawDepositContainer">
@@ -58,9 +102,9 @@ const WithdrawDeposit = () => {
                 </select>
 
                 <p>Deposit Balance</p>
-                <input type="number"></input>
+                <input className="DepositBalance" type="number" value = {depositAmount} onChange = {e => depositChangeHandler(e.target.value)} />
 
-                <input type="submit" value = "Deposit"></input>
+                <input type="submit" value = "Deposit" onClick = {depositHandler} />
             </div>
 
             <div className = "WithdrawDeposit">
