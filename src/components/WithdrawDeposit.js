@@ -47,7 +47,6 @@ const WithdrawDeposit = () => {
         if(id === "") {
             setIdError(true);
         } else {setIdError(false);}
-
     }
 
     // Deposit Amount
@@ -91,7 +90,58 @@ const WithdrawDeposit = () => {
     // Withdraw Error Checking
     const [withdrawIdError, setWithdrawIdError] = useState(true);
     const [withdrawError, setWithdrawError] = useState(true);
+    const [successfulWithdraw, setSuccessfulWithdraw] = useState(true);
 
+    // Find the balance associated with that account number (withdrawls)
+    const accountWithdrawHandler = (id) => {
+        if(id !== "") {
+            const current = data.filter(acc => acc.account_number.toString() === id)[0].current_balance;
+            setWithdrawBalance(current);
+            // Error checking the withdraw balance
+            if(current > withdrawAmount) {
+                withdrawChangeHandler(withdrawAmount);
+            }
+        } else {
+            setWithdrawBalance("");
+        }
+        setAccountIdWithdraw(id);
+
+        // Error Checking the id and amount
+        if(id === "") {
+            setWithdrawIdError(true);
+            setWithdrawError(true);
+        } else {setWithdrawIdError(false);}
+    }
+
+    // Withdraw Amount
+    const withdrawChangeHandler = (amount) => {
+        setWithdrawAmount(amount);
+
+        // Error Checking
+        if(amount <= 0 || amount >= 5000 || accountIdWithdraw === "" || amount > withdrawBalance) {
+            setWithdrawError(true);
+        } else {setWithdrawError(false);}
+    }
+
+    // Withdraw Button
+    const withdrawHandler = () => {
+        if(withdrawIdError === false && withdrawError === false) {
+            //! Call Axios function for withdrawing from an account
+            console.log("Successful Withdraw Handler");
+
+            // Reset States
+            setAccountIdWithdraw("");
+            setWithdrawAmount("");
+
+            // Reset Error Checking
+            setWithdrawIdError(true);
+            setWithdrawError(true);
+            setSuccessfulWithdraw(true);
+        } else {
+            // Will display all the errors
+            setSuccessfulWithdraw(false);
+        }
+    }
 
     return (
         <div className="WithdrawDepositContainer">
@@ -121,10 +171,10 @@ const WithdrawDeposit = () => {
             <div className = "WithdrawDeposit">
                 <h1 className="title">Withdraw</h1>
                 
-                <h3>Current Balance: {accountIdDeposit && "$" + depositBalance.toFixed(2)}</h3>
+                <h3>Current Balance: {accountIdWithdraw && "$" + withdrawBalance.toFixed(2)}</h3>
 
-                <h4>Select Account</h4>
-                <select value = {accountIdDeposit} onChange={(e) => accountHandler(e.target.value)}>
+                <h4>Select Account<i className="Red">{!successfulWithdraw && withdrawIdError && " Please select an account"}</i></h4>
+                <select value = {accountIdWithdraw} onChange={(e) => accountWithdrawHandler(e.target.value)}>
                     <option value = ""></option>
                     {data.map((account) => {
                         return(
@@ -133,10 +183,10 @@ const WithdrawDeposit = () => {
                     })}
                 </select>
 
-                <h4>Withdraw Balance</h4>
-                <input className="DepositBalance" type="number" value = {depositAmount} onChange = {e => depositChangeHandler(e.target.value)} />
+                <h4>Withdraw Balance<i className="Red">{!successfulWithdraw && withdrawError && " Must be less than current balance and $5000"}</i></h4>
+                <input className="DepositBalance" type="number" value = {withdrawAmount} onChange = {e => withdrawChangeHandler(e.target.value)} />
 
-                <input type="submit" value = "Withdraw" onClick = {depositHandler} />
+                <input type="submit" value = "Withdraw" onClick = {withdrawHandler} />
             </div>
 
         </div>
