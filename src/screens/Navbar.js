@@ -29,8 +29,8 @@ const Navbar = (props) => {
                     <div className={"Navlinks " + (props.active === "Accounts" && "ActiveComponent")}>
                         <p onClick={e => currentComponent(e.target.innerHTML)}>Accounts</p>
                     </div>
-                    <div className={"Navlinks " + (props.active === "Withdrawl / Deposit" && "ActiveComponent")}>
-                        <p onClick={e => currentComponent(e.target.innerHTML)}>Withdrawl / Deposit</p>
+                    <div className={"Navlinks " + (props.active === "User Transaction" && "ActiveComponent")}>
+                        <p onClick={e => currentComponent(e.target.innerHTML)}>User Transaction</p>
                     </div>
                     <div  className={"Navlinks " + (props.active === "Transfer" && "ActiveComponent")}>
                         <p onClick={e => currentComponent(e.target.innerHTML)}>Transfer</p>
