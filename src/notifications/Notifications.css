@@ -1,0 +1,28 @@
+/* Modal Styling */
+.Modal {
+    z-index: 300;
+    background-color: white;
+    margin: auto;
+    top: 30%;
+    height: 25%;
+    left: 25%;
+    width: 50%;
+    position: fixed;
+    border-radius: 0.3em;
+}
+
+
+/* Backdrop Styling */
+.Backdrop {
+    z-index: 200;
+    background-color: black;
+    opacity: 0.7;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
+
+/* For closing the modal and backdrops */
+.Close {
+    display: none;
+}
