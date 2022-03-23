@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
 
+    //! Remove transfer section or replace with an advertisement
+
     const navigate = useNavigate(); 
 
     // Uplifts current component name
