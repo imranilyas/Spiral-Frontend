@@ -10,7 +10,7 @@ const data = [
     {"account_number": 987654, "current_balance": 574467.65}
 ];
 
-const Transfer = () => {
+const Transfer = (props) => {
 
     // Transfer States
     const [sendAccountId, setSendAccountId] = useState("");
@@ -76,6 +76,9 @@ const Transfer = () => {
             
             setSuccessfulTransfer(true);
             console.log("Transfer Successful");
+
+            //! Will need to make the transfer and withdraw respond to this
+            props.modal(false);
         }
     }
 
