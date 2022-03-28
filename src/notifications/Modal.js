@@ -12,7 +12,7 @@ const Modal = (props) => {
     const modalHandler = (input) => {
         console.log(input);
         if(input === yes) {
-            //! Uplift a value 
+            props.response();
         } else {
             //! Uplift negative value
         }
@@ -25,8 +25,8 @@ const Modal = (props) => {
             <p className = 'ModalHeader'>CAUTION : User Transaction</p>
             <p className='ModalBody'>Are you sure you want to continue this transaction?</p>
             <div>
-                <button onClick={e => modalHandler(e.target.value)}>{no}</button>
-                <button onClick={e => modalHandler(e.target.value)}>{yes}</button>
+                <button value = "No" onClick={e => modalHandler(e.target.value)}>No</button>
+                <button value = "Yes" onClick={e => modalHandler(e.target.value)}>Yes</button>
             </div>
         </div>
     );

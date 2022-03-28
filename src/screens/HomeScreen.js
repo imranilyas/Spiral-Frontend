@@ -16,6 +16,11 @@ const HomeScreen = () => {
         setClosingModal(input);
     }
 
+    // Modal Response
+    const modalYesResponse = () => {
+        console.log("Selected Yes");
+    }
+
     //! Will change this such that login will pass props here
     const [role] = useState("Account Holder");
     const [activeComponent, setActiveComponent] = useState("");
@@ -37,7 +42,7 @@ const HomeScreen = () => {
     return (
         <div className="HomeScreen">
             <Backdrop backdropState = {closingModal} />
-            <Modal modalState = {closingModal} closeModal = {modalAndBackdropHandler} />
+            <Modal modalState = {closingModal} closeModal = {modalAndBackdropHandler} response = {modalYesResponse} />
             <Navbar role = {role} active = {activeComponent} activeHandler = {activeHandler} />
             <NavDisplay active = {activeComponent} modal = {modalAndBackdropHandler} />
         </div>
